@@ -1,0 +1,31 @@
+query,category,db,mean_ms,stddev_ms,min_ms,max_ms
+Q01 INSERT – new user row,Insert/Delete/Update,mysql,0.9391,0.6564,0.5909,3.6942
+Q02 DELETE – remove user row by PK,Insert/Delete/Update,mysql,0.5201,0.0811,0.4158,0.6643
+Q02b DELETE – remove user row by non-PK (DisplayName),Insert/Delete/Update,mysql,135.7786,0.5956,134.8083,137.4117
+Q03 UPDATE – change user Reputation by PK,Insert/Delete/Update,mysql,0.4049,0.1972,0.208,1.1923
+Q03b UPDATE – change user Reputation by non-PK (DisplayName),Insert/Delete/Update,mysql,136.9808,1.5663,134.9965,141.2149
+Q04 SELECT by PK – single key (Posts),PK Lookup,mysql,0.5778,0.2241,0.3825,1.2448
+Q05 SELECT by PK – range Id BETWEEN ? AND ?+500,PK Range,mysql,2.9771,0.9291,1.5469,4.2534
+Q06 SELECT non-key single – Location='United States',Non-key Single Condition,mysql,4.2891,0.5118,4.0748,6.3861
+Q07 SELECT non-key compound – PostTypeId+Score+ViewCount,Non-key Compound Condition,mysql,205.8253,489.6877,89.9393,2285.2188
+Q08 SELECT LIKE – Tags LIKE '%<python>%',LIKE Pattern,mysql,41.6026,17.5078,37.1311,115.818
+Q09 JOIN – Posts × Users (Score > 50),2-table JOIN,mysql,7.4475,0.8596,6.4967,10.489
+Q10 JOIN – Comments × Posts × Users (c.Score > 3),3-table JOIN,mysql,45.4219,35.7505,36.451,197.2855
+Q11 Subquery – users with above-avg question score,Subquery,mysql,114.3196,6.0629,112.1392,140.0085
+Q12 GROUP BY PostTypeId – count/avg/min/max/sum,Aggregation (GROUP BY),mysql,581.1515,14.9794,575.0621,642.2559
+Q13 Full-text (LIKE fallback) – Body LIKE '%python%',Full-text / LIKE,mysql,19.7867,1.0105,19.3713,24.0422
+Q01 INSERT – new user row,Insert/Delete/Update,postgres,0.268,0.275,0.1775,1.4274
+Q02 DELETE – remove user row by PK,Insert/Delete/Update,postgres,2379.5284,84.8529,2289.4066,2539.8396
+Q02b DELETE – remove user row by non-PK (DisplayName),Insert/Delete/Update,postgres,2256.6351,109.2273,2191.8395,2703.0764
+Q03 UPDATE – change user Reputation by PK,Insert/Delete/Update,postgres,0.1827,0.2303,0.0964,1.1366
+Q03b UPDATE – change user Reputation by non-PK (DisplayName),Insert/Delete/Update,postgres,13.9016,0.297,13.4557,14.6762
+Q04 SELECT by PK – single key (Posts),PK Lookup,postgres,0.378,0.3631,0.0993,1.8692
+Q05 SELECT by PK – range Id BETWEEN ? AND ?+500,PK Range,postgres,5.4166,1.6559,2.9697,9.8824
+Q06 SELECT non-key single – Location='United States',Non-key Single Condition,postgres,2.8298,1.8297,2.0246,8.5734
+Q07 SELECT non-key compound – PostTypeId+Score+ViewCount,Non-key Compound Condition,postgres,60.94,197.9401,8.7763,895.9736
+Q08 SELECT LIKE – Tags LIKE '%<python>%',LIKE Pattern,postgres,11.2572,1.3987,9.0378,14.6075
+Q09 JOIN – Posts × Users (Score > 50),2-table JOIN,postgres,1.3927,1.4284,0.9725,7.4573
+Q10 JOIN – Comments × Posts × Users (c.Score > 3),3-table JOIN,postgres,37.1674,4.6791,30.5363,54.0081
+Q11 Subquery – users with above-avg question score,Subquery,postgres,26.0777,3.2959,24.9094,40.0169
+Q12 GROUP BY PostTypeId – count/avg/min/max/sum,Aggregation (GROUP BY),postgres,119.3846,2.2369,118.3862,128.8189
+Q13 Full-text (LIKE fallback) – Body LIKE '%python%',Full-text / LIKE,postgres,21.1789,3.2767,14.1467,28.5445
