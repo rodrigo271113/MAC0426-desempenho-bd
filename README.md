@@ -1,5 +1,6 @@
 # MySQL vs PostgreSQL Performance Benchmark Suite
-### USP — Banco de Dados — Projeto 1
+### Análise de Desempenho de Bancos de Dados
+
 
 This repository contains a benchmarking suite designed to evaluate and compare the performance of **MySQL/MariaDB** and **PostgreSQL** across all required relational database operations using the **StackOverflow** database.
 
@@ -12,6 +13,7 @@ The suite evaluates 13 distinct queries representing various workload patterns a
 ```
 /
 ├── benchmark.py                     # Main Python benchmark controller
+├── boxplot.py                       # Boxplot generator
 ├── requirements.txt                 # Python dependencies
 ├── README.md                        # Documentation & guides
 └── sql/                             # SQL scripts for scenario setup
